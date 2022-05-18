@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=sc, initial-scale=1.0">
+    <title>Homework 12 </title>
+</head>
+<body>
+    <script>
+        function reduce(numb = 0) {
+            let res = numb;
+
+            return function(next = 0) {
+            return res += next;
+        }
+    }
+
+            const summ = reduce();
+
+            console.log(summ(5))
+            console.log(summ(2))
+
+        function createCounter(start = 0, step = 1) {
+            let count = start;
+
+        function counter() {
+            return count += step;
+        }
+        counter.reset = function() {
+        count = start;
+            return count;
+        }
+
+        return counter;
+    }
+
+        const counter = createCounter(2, 3);
+
+        console.log('counter: ', counter());
+        console.log('counter: ', counter());
+        console.log('reset: ', counter.reset());
+    </script>
+</body>
+</html>
